@@ -1,0 +1,50 @@
+<div class="w-full h-full">
+  <div class="flex-grow-1 background h-full w-full">
+    <img src="../../assets/image/doge.png" alt="">
+  </div>
+  <div class="card h-full w-full flex p-5">
+    <div class="h-full flex-wrap p-4 bg-yellow-200 overflow-scroll max-w-max">
+      <p class="align-self-center">供品</p>
+      <div *ngFor="let product of availableProducts">
+        <div class="product-item flex m-1 bg-white" pDraggable="products" (onDragStart)="dragStart(product)" (onDragEnd)="dragEnd()">
+          <div class="image-container">
+            <img src="{{ product.image }}" [alt]="product.name" height="120px"
+            class="product-image m-3" />
+          </div>
+          <div class="product-list-detail flex flex-column-reverse m-3 flex-grow-1">
+            <span class="product-category">{{product.category}}</span>
+            <h5 class="mb-2">{{product.name}}</h5>
+          </div>
+          <div class="product-list-action flex flex-column-reverse m-3 align-items-end">
+            <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus!)"></p-tag>
+            <h6 class="mb-2">{{product.price}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex-grow-1">
+
+    </div>
+    <div class=" drop-column w-4" pDroppable="products" (onDrop)="drop()" >
+      <p-table [value]="selectedProducts!">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Remaining</th>
+            <th>Category</th>
+            <th>Price</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.price}}$</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+</div>

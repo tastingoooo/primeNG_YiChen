@@ -1,0 +1,35 @@
+.content-container{
+  background: #f8f8f0;
+  .content{
+    .left-content{
+      background: #efecec;
+      .news{
+        background: #ffffff;
+        ul{
+          padding: 0;
+          label{
+            padding: 1-rem;
+          }
+          hr {
+            border: 0;
+            height: 1px;
+            background: #333;
+            background-image: linear-gradient(to right, #ccc, #333, #ccc);
+          }
+        }
+      }
+    }
+    .right-content{
+      background: #efecec;
+      button{
+        background: white;
+      }
+    }
+  }
+}
+li{
+  list-style-type: none;
+}
+a{
+  color:rgb(72, 137, 199);
+}

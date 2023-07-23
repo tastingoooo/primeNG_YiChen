@@ -19,7 +19,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "his",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -37,6 +37,10 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/primeng/resources/themes/nano/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -107,5 +111,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "b81bf0c1-47fb-4061-ba39-babb365288b5"
   }
 }

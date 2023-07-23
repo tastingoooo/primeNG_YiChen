@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/nano/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+
+body {
+  font-family: var(--font-family);
+  height:100vh;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;//padding向內縮 使最大寬度不會超出
+}
