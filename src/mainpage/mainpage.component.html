@@ -11,31 +11,16 @@
         <p-button class="my-1" label="查看更多" styleClass="p-button-raised p-button-success"></p-button>
       </div>
       <div class="news flex-grow-1">
-        <li>
-          <ul class="p-2 m-1">
-            <label class="date p-2">2023-07-05 11:11</label>
-            <label class="table p-2">您目前有２張沙發被咬壞。</label>
-            <a href="/">請點此進入</a>
-            <hr>
-          </ul>
-          <ul class="p-2 m-1">
-            <label class="date p-2">2023-07-05 13:01</label>
-            <label class="table p-2">您目前有１１個碗盤碎在地上。</label>
-            <a href="/">請點此進入</a>
-            <hr>
-          </ul>
-          <ul class="p-2 m-1">
-            <label class="date p-2">2023-07-05 15:32</label>
-            <label class="table p-2">您目前有６９個小孩的父母須安撫。</label>
-            <a href="/">請點此進入</a>
-            <hr>
-          </ul>
-          <ul class="p-2 m-1">
-            <label class="date p-2">2023-07-05 19:55</label>
-            <label class="table p-2">您的鄰居快要報警了。</label>
-            <hr>
-          </ul>
-        </li>
+        <div *ngFor="let new of news">
+          <li>
+            <ul class="p-2 m-1">
+              <label class="date p-2">{{new.date}}</label>
+              <label class="table p-2">{{new.message}}</label>
+              <a href=`${new.href}`>請點此進入</a>
+              <hr>
+            </ul>
+          </li>
+        </div>
       </div>
     </div>
     <div class="right-content flex flex-column flex-grow-1 ml-2 px-3 h-full flex-shrink-0">
@@ -53,19 +38,19 @@
       <div class="flex-grow-1 align-self-center">
         <p-inplace>
           <ng-template pTemplate="display">
-              <div class="inline-flex align-items-center">
-                  <span class="pi pi-image" style="vertical-align: middle"></span>
-                  <span class="ml-2">狗狗有禮物送你</span>
-              </div>
+            <div class="inline-flex align-items-center">
+              <span class="pi pi-image" style="vertical-align: middle"></span>
+              <span class="ml-2">狗狗有禮物送你</span>
+            </div>
           </ng-template>
           <ng-template pTemplate="content">
-              <img src="https://cdn2.ettoday.net/images/4812/d4812082.jpg" alt="sofa" />
+            <img src="https://cdn2.ettoday.net/images/4812/d4812082.jpg" alt="sofa" />
           </ng-template>
-      </p-inplace>
+        </p-inplace>
       </div>
     </div>
   </div>
   <div class="mt-3">
-    <p-steps [model]="items" [readonly]="true" ></p-steps>
+    <p-steps [model]="items" [readonly]="true"></p-steps>
   </div>
 </div>

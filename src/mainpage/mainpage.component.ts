@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { StepsModule } from 'primeng/steps';
 import { MenuItem } from 'primeng/api';
 import { InplaceModule } from 'primeng/inplace';
+import { Mainpage } from './mainpage';
+import { MainpageService } from './mainpage.service';
 
 @Component({
   selector: 'his-mainpage',
   standalone: true,
   imports: [CommonModule,ButtonModule,StepsModule,InplaceModule],
   templateUrl: './mainpage.component.html',
-  styleUrls: ['./mainpage.component.scss']
+  styleUrls: ['./mainpage.component.scss'],
+  providers:[MainpageService]
 })
 export class MainPageComponent implements OnInit {
+  newsService=inject(MainpageService);
   items: MenuItem[] | undefined;
+  news:Mainpage[] | undefined;
 
   ngOnInit() {
       this.items = [
@@ -34,5 +39,6 @@ export class MainPageComponent implements OnInit {
               routerLink: 'confirmation'
           }
       ];
+      this.news=this.newsService.getNews();
   }
 }
